@@ -19,11 +19,23 @@ The researchers had previously attempted to use tools like ABBYY FineReader, bui
 ## The workflow: Overview
 
 Here are the steps in summary:
-1. Resource assembling: Generate API key; pay for tokens; install and gather tools
-2. Data collection: Gather input PDFs from research/partner datasets
-3. Image/PDF pre-processing: Create regularized images for all import and export data.
-4. Prompt engineering: Generate an effective prompt/messaging approach.
-5. Run bulk API queries: Run all images through API; rerun in case of failures
-6. Concatenate and export results: Gather results into a single tabular output
+1. **Gather tools and resources**: Generate API key; pay for tokens; install and gather tools
+2. **Data collection and documentation**: Gather input PDFs from research/partner datasets and generate manifest file
+3. **Image/PDF preprocessing**: Create regularized images for all import and export data.
+4. **Prompt engineering for genAI**: Generate an effective prompt/messaging approach.
+5. **Run bulk API queries**: Run all images through API; rerun in case of failures
+6. **Export results**: Gather results into a single tabular output
 
 Now we'll explore each at greater depth.
+
+## Step one: Gather tools and resources
+
+## Step two: Data collection and documentation
+
+## Step three: Image/PDF preprocessing
+
+## Step four: Prompt engineering for genAI
+
+## Step five: Run bulk API queries
+
+## Step six: Export results
