@@ -30,12 +30,41 @@ Now we'll explore each at greater depth.
 
 ## Step one: Gather tools and resources
 
+Tools:
+Python / Jupyter Notebooks / Anaconda
+Google Sheets
+Text editor (Visual Studio Code)
+
+Resources:
+Claude API key
+API tokens - note free + paid cost, tiers, etc. Note 
+
+Skills:
+Programming with Python
+Pandas
+Familiarity with querying APIs
+The Jupyter Notebook approach
+
 ## Step two: Data collection and documentation
+
+Gather source documents
+
+Generate manifest file to identify target pages
 
 ## Step three: Image/PDF preprocessing
 
+Create new notebook just focusing on image preprocessing.
+
 ## Step four: Prompt engineering for genAI
+
+GenAI OCR notebook prompting segment.
+
+Strategies to iteratively improve this prompting strategy.
 
 ## Step five: Run bulk API queries
 
+Code for this segment.
+
 ## Step six: Export results
+
+Read and collate all output CSVs and output as single CSV(s)
