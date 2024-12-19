@@ -53,14 +53,25 @@ Generate manifest file to identify target pages: [Manifest link](https://docs.go
 
 ## Step three: Image/PDF preprocessing
 
-Python process:
+### Python process:
 * Convert each PDF page to an image (grayscale image to [Claude maximum image dimensions](https://docs.anthropic.com/en/docs/build-with-claude/vision) + name with year + page_num
 * Read in OCR manifest file
 * Move import and export images to separate folders
 
 ## Step four: Prompt engineering for genAI
 
-Below is the function used to generate a prompt for Claude API using [Vision prompting best practices](https://docs.anthropic.com/en/docs/build-with-claude/vision):
+Below is the function used to generate a prompt for Claude API using [Vision prompting best practices](https://docs.anthropic.com/en/docs/build-with-claude/vision).
+
+### Key components:
+
+#### User message: 
+` "text": "For the image included, please read this historical table and return a JSON list that contains one dictionary for every row of the table The output should include the following three keys: DESCRIPCION, PAIS, and VALORES and the values should come from every row in the original table. Every row in the original data should appear in the output JSON list. Here are the rows for each key. For the Descripcion value, please only include the string of numbers and spaces that appear in the DESCRIPCION table column - this value looks something like 051 07 02 00. Treat this data like a string and include leading zeros and spaces. Please note that every JSON dictionary object must include a DESCRIPCION column value. When reading the original historical table image, you must fill in the blank DESCRIPCION values for each row that contains only a PAIS value - these PAIS values are all sub-items of a main row and so you can fill in the DESCRIPCION value with the first value you see above those rows with only PAIS values. The PAIS value is either missing (which is ok) or the value in that column, like NICARAGUA, HONDURAS, etc. For VALORES, use the value in the " + value_type + " column."`
+
+#### System message:
+`"text": "For the image included, please read this historical table and return a JSON list that contains one dictionary for every row of the table The output should include the following three keys: DESCRIPCION, PAIS, and VALORES and the values should come from every row in the original table. Every row in the original data should appear in the output JSON list. Here are the rows for each key. For the Descripcion value, please only include the string of numbers and spaces that appear in the DESCRIPCION table column - this value looks something like 051 07 02 00. Treat this data like a string and include leading zeros and spaces. Please note that every JSON dictionary object must include a DESCRIPCION column value. When reading the original historical table image, you must fill in the blank DESCRIPCION values for each row that contains only a PAIS value - these PAIS values are all sub-items of a main row and so you can fill in the DESCRIPCION value with the first value you see above those rows with only PAIS values. The PAIS value is either missing (which is ok) or the value in that column, like NICARAGUA, HONDURAS, etc. For VALORES, use the value in the " + value_type + " column."`
+
+##### Assistant message:
+`text": "For the image included, please read this historical table and return a JSON list that contains one dictionary for every row of the table The output should include the following three keys: DESCRIPCION, PAIS, and VALORES and the values should come from every row in the original table. Every row in the original data should appear in the output JSON list. Here are the rows for each key. For the Descripcion value, please only include the string of numbers and spaces that appear in the DESCRIPCION table column - this value looks something like 051 07 02 00. Treat this data like a string and include leading zeros and spaces. Please note that every JSON dictionary object must include a DESCRIPCION column value. When reading the original historical table image, you must fill in the blank DESCRIPCION values for each row that contains only a PAIS value - these PAIS values are all sub-items of a main row and so you can fill in the DESCRIPCION value with the first value you see above those rows with only PAIS values. The PAIS value is either missing (which is ok) or the value in that column, like NICARAGUA, HONDURAS, etc. For VALORES, use the value in the " + value_type + " column."`
 
 ```python
 # take in an image (e.g. from a PDF page); query claude API; return table
