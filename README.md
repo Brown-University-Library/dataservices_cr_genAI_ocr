@@ -8,7 +8,7 @@ For the primary research team, this will replicate work already performed over N
 
 For future researchers, students, and colleagues, we hope this will provide a template for further work.
 
-## The challenge of digitizing historical trade data: 1960-1982 Costa Rica trade documents
+## Background: the challenge of digitizing historical trade data; 1960-1982 Costa Rica trade documents
 
 For this project, our challenge is to digitize 20+ years of import and export data. Each year is collected into a single PDF file, with a range of about 300 pages of import data and 100 pages of export data. 
 
